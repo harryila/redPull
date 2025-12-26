@@ -103,7 +103,7 @@ class RedditClient:
                 selftext=data.get("selftext", ""),
                 url=data["url"],
                 author=data.get("author", "[deleted]"),
-                created_utc=datetime.fromisoformat(data["created_utc"]),
+                created_utc=datetime.fromisoformat(data["created_utc"].replace("Z", "+00:00")),
                 score=data.get("score", 0),
                 num_comments=data.get("num_comments", 0),
             )
